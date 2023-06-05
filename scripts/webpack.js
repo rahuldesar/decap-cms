@@ -16,8 +16,19 @@ function moduleNameToPath(libName) {
 function rules() {
   return {
     js: () => ({
-      test: /\.(ts|js)x?$/,
+      test: /\.(ts|m?js)x?$/,
       exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          rootMode: 'upward',
+        },
+      },
+    }),
+
+    mjs: () => ({
+      test: /\.mjs$/,
+      exclude: /node_modules\/(?!(@editorjs)\/).*/,
       use: {
         loader: 'babel-loader',
         options: {
