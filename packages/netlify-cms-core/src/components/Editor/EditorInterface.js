@@ -251,6 +251,8 @@ class EditorInterface extends Component {
     };
 
     const leftPanelLocale = this.state.leftPanelLocale || locales?.[0];
+
+    //@Rahul-1 => Editor Panel
     const editor = (
       <ControlPaneContainer overFlow blockEntry={showEventBlocker}>
         <EditorControlPane
@@ -386,6 +388,7 @@ class EditorInterface extends Component {
               />
             )}
           </ViewControls>
+          {/* THIS HERE */}
           <EditorContent
             i18nVisible={i18nVisible}
             previewVisible={previewVisible}

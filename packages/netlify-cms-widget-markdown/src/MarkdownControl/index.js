@@ -5,6 +5,7 @@ import { List, Map } from 'immutable';
 
 import RawEditor from './RawEditor';
 import VisualEditor from './VisualEditor';
+import Hello from './components/Hello';
 
 const MODE_STORAGE_KEY = 'cms.md-mode';
 
@@ -84,8 +85,11 @@ export default class MarkdownControl extends React.Component {
 
     const { mode, pendingFocus } = this.state;
     const isShowModeToggle = this.getAllowedModes().length > 1;
+
+    //@Rahul-3 => EDITORS for widget 'markdown'
     const visualEditor = (
       <div className="cms-editor-visual" ref={this.processRef}>
+        <Hello />
         <VisualEditor
           onChange={onChange}
           onAddAsset={onAddAsset}
@@ -106,8 +110,8 @@ export default class MarkdownControl extends React.Component {
     );
     const rawEditor = (
       <div className="cms-editor-raw" ref={this.processRef}>
+        <Hello />
         <RawEditor
-          onChange={onChange}
           onAddAsset={onAddAsset}
           isShowModeToggle={isShowModeToggle}
           onMode={this.handleMode}
